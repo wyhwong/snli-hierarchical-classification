@@ -1,0 +1,101 @@
+fail_fast: true
+
+repos:
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v6.0.0
+  hooks:
+  - id: check-toml
+  - id: check-yaml
+    exclude: mkdocs.yml
+  - id: end-of-file-fixer
+    exclude: \.json$
+  - id: trailing-whitespace
+  - id: check-added-large-files
+    args: ["--maxkb=1024"]
+  - id: forbid-new-submodules
+  - id: detect-private-key
+  - id: check-merge-conflict
+  - id: check-ast
+
+- repo: https://github.com/kynan/nbstripout
+  rev: 0.9.1
+  hooks:
+  - id: nbstripout
+    exclude: ^src/notebooks
+
+- repo: https://github.com/crate-ci/typos
+  rev: v1.46.2
+  hooks:
+  - id: typos
+    args: [
+      "--config", "./.typos.toml"
+    ]
+
+- repo: https://github.com/psf/black
+  rev: 25.12.0
+  hooks:
+  - id: black
+    args: [
+      "--config", "./src/pyproject.toml",
+      "src"
+    ]
+    additional_dependencies: [ "black[toml]" ]
+    always_run: true
+    verbose: true
+
+- repo: https://github.com/pycqa/isort
+  rev: 8.0.1
+  hooks:
+  - id: isort
+    args: [
+      "--profile", "black",
+      "--settings-path", "./src/pyproject.toml",
+      "src"
+    ]
+    additional_dependencies: [ "isort[toml]" ]
+    always_run: true
+    verbose: true
+
+- repo: https://github.com/pylint-dev/pylint
+  rev: v4.0.5
+  hooks:
+  - id: pylint
+    args: ["--rcfile", ".pylintrc"]
+    files: \.py$
+    always_run: true
+    verbose: true
+
+- repo: https://github.com/rubik/xenon
+  rev: v0.9.0
+  hooks:
+  - id: xenon
+    args: [
+      "--exclude=*test_*",
+      "src"
+    ]
+    always_run: true
+    verbose: true
+
+- repo: https://github.com/astral-sh/uv-pre-commit
+  rev: 0.10.11
+  hooks:
+    - id: uv-lock
+      args: ["--project", "./src"]
+      always_run: true
+      verbose: true
+
+    - id: uv-sync
+      args: ["--project", "./src"]
+      always_run: true
+      verbose: true
+
+    - id: uv-export
+      args:
+        [
+          "--project", "./src",
+          "--no-hashes",
+          "--output-file=./src/requirements.txt",
+          "--quiet"
+        ]
+      always_run: true
+      verbose: true

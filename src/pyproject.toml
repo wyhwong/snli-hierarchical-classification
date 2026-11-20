@@ -1,0 +1,38 @@
+[project]
+name = "snli-hierarchical-classification"
+version = "0.1.0"
+description = "Final project for AI388 NLP"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []
+
+[tool.uv.sources]
+torch = [
+    { index = "pypi", marker = "platform_machine == 'arm64'" },
+    { index = "pytorch-cu130", marker = "platform_machine != 'arm64'" },
+]
+torchvision = [
+    { index = "pypi", marker = "platform_machine == 'arm64'" },
+    { index = "pytorch-cu130", marker = "platform_machine != 'arm64'" },
+]
+torchcodec = [
+    { index = "pypi", marker = "platform_machine == 'arm64'" },
+    { index = "pytorch-cu130", marker = "platform_machine != 'arm64'" },
+]
+
+[[tool.uv.index]]
+name = "pypi"
+url = "https://pypi.org/simple"
+
+[[tool.uv.index]]
+name = "pytorch-cu130"
+url = "https://download.pytorch.org/whl/cu130"
+explicit = true
+
+[tool.black]
+line-length = 120
+
+[tool.isort]
+line_length = 120
+include_trailing_comma = true
+lines_after_imports = 2
