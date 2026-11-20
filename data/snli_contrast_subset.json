@@ -1,0 +1,152 @@
+[
+    {
+        "premise": "A balding man with a checkered shirt and khaki pants naps on his recliner with his keys on his lap.",
+        "hypothesis": "A man ran in playground earlier.",
+        "label": 1
+    },
+    {
+        "premise": "The Raiders complete the pass while the Dolphin defense scrambles to catch him.",
+        "hypothesis": "The player was alone asleep in the bathtub",
+        "label": 1
+    },
+    {
+        "premise": "A lady sitting on a bench that is against a building and under a poster of a man in a uniform waving.",
+        "hypothesis": "Someone is waving",
+        "label": 0
+    },
+    {
+        "premise": "a man is swimming inside of a pool",
+        "hypothesis": "there is a wet person.",
+        "label": 0
+    },
+    {
+        "premise": "A boy with a basketballs glowers at the camera.",
+        "hypothesis": "The boy looks displeased.",
+        "label": 0
+    },
+    {
+        "premise": "A child rests on her mother lap exhausted from a day of sun and fun at the beach.",
+        "hypothesis": "The mother played outside.",
+        "label": 1
+    },
+    {
+        "premise": "Two men practicing a form of martial arts in a wooden-floored studio.",
+        "hypothesis": "Two men practicing martial arts outside",
+        "label": 2
+    },
+    {
+        "premise": "Young, attractive and fashionable girl posed for the camera as she sits on a rock in a park-like setting.",
+        "hypothesis": "the girl is not a model.",
+        "label": 2
+    },
+    {
+        "premise": "A child, wearing a tie, jumps off steps.",
+        "hypothesis": "Two children are jumping off the step and into a puddle.",
+        "label": 2
+    },
+    {
+        "premise": "A father helps his son ride a bike across dry, and dusty dirt accompanied by his sister adorned in a green dress.",
+        "hypothesis": "Someone is not wearing a dress.",
+        "label": 1
+    },
+    {
+        "premise": "A girl wearing a red shirt and jeans is sitting in a rocking chair at a cluttered desk, while another girl wearing a black t-shirt and jogging pants is sitting on the floor writing on a piece of paper with other papers arranged around her.",
+        "hypothesis": "two girls plan to fly a kite in the park",
+        "label": 1
+    },
+    {
+        "premise": "A black dog is running through a wooded area.",
+        "hypothesis": "A black dog with a gray collar.",
+        "label": 1
+    },
+    {
+        "premise": "Man in a black suit, white shirt and black bowtie playing an instrument with the rest of his symphony surrounding him.",
+        "hypothesis": "Someone in formal attire.",
+        "label": 0
+    },
+    {
+        "premise": "A cat runs along the ocean surf.",
+        "hypothesis": "A cat is running in the waves.",
+        "label": 0
+    },
+    {
+        "premise": "A woman in the street with a black shirt and stars with her mouth open.",
+        "hypothesis": "The male has on black shirt.",
+        "label": 2
+    },
+    {
+        "premise": "A poor family is leaving their home with only a few belongings.",
+        "hypothesis": "A man did not eats a chalupa.",
+        "label": 1
+    },
+    {
+        "premise": "A baby is in an activity chair in a child's playroom.",
+        "hypothesis": "The baby is playing.",
+        "label": 1
+    },
+    {
+        "premise": "People walk amongst a traffic jam in a crowded city.",
+        "hypothesis": "There are many people.",
+        "label": 0
+    },
+    {
+        "premise": "Children and adults swim in large pool with red staircase.",
+        "hypothesis": "At least one adult is in the water.",
+        "label": 0
+    },
+    {
+        "premise": "toddlers playing with toys.",
+        "hypothesis": "Only one child is present.",
+        "label": 2
+    },
+    {
+        "premise": "The pitcher wearing black heaves the ball toward the catcher and catcher failed .",
+        "hypothesis": "The pitcher drops the ball.",
+        "label": 2
+    },
+    {
+        "premise": "A woman is pushing her bike with a baby carriage in front.",
+        "hypothesis": "A woman is taking her child out from carriage.",
+        "label": 2
+    },
+    {
+        "premise": "Two men performing in a music group.",
+        "hypothesis": "Two men are playing instruments.",
+        "label": 0
+    },
+    {
+        "premise": "The person in black T-shirt is sitting.",
+        "hypothesis": "The man is a robot.",
+        "label": 2
+    },
+    {
+        "premise": "One man in all black in a bowling ally who just bowled with an orange ball.",
+        "hypothesis": "The man will switch to a green ball later.",
+        "label": 1
+    },
+    {
+        "premise": "A man providing entertainment on the sidewalk by playing the violin.",
+        "hypothesis": "A man is entertaining a crowd by playing instruments on the sidewalk",
+        "label": 0
+    },
+    {
+        "premise": "Masked actors perform traditional Japanese theater.",
+        "hypothesis": "There is more than one person present.",
+        "label": 0
+    },
+    {
+        "premise": "A girl is using an apple laptop with her headphones in her ears.",
+        "hypothesis": "While listening to audio through her headphones the girl work on her computer.",
+        "label": 0
+    },
+    {
+        "premise": "Two people sitting on a bench by the water with a dog.",
+        "hypothesis": "A dog is sitting on a bench",
+        "label": 2
+    },
+    {
+        "premise": "Three girls fell on top of one another and are arguing histerically.",
+        "hypothesis": "Three girls laughing about clumsily falling on each other.",
+        "label": 2
+    }
+]
