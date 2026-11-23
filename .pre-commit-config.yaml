@@ -60,7 +60,7 @@ repos:
   rev: v4.0.5
   hooks:
   - id: pylint
-    args: ["--rcfile", ".pylintrc"]
+    args: ["--rcfile", ".pylintrc", "src/scripts"]
     files: \.py$
     always_run: true
     verbose: true
