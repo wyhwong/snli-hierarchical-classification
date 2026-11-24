@@ -23,6 +23,7 @@ def train_model(
     output_dir: str,
     dataset_id: str = "snli",
     is_focus_learning: bool = False,
+    hard_to_learn_confidence_threshold: float = 0.9,
     is_stage_one_learning: bool = False,
     is_stage_two_learning: bool = False,
     task_kwargs: dict = {"num_labels": 2},
@@ -33,7 +34,12 @@ def train_model(
     dataset = filter_out_invalid_labels(dataset)
 
     if is_focus_learning:
-        dataset["train"] = select_hard_to_learn_examples(dataset["train"], data_map)
+        dataset["train"] = select_hard_to_learn_examples(
+            dataset=dataset["train"],
+            data_map=data_map,
+            num_preprocessing_workers=num_preprocessing_workers,
+            confidence_threshold=hard_to_learn_confidence_threshold,
+        )
 
     if is_stage_two_learning:
         # For stage 2, remove neutral examples
