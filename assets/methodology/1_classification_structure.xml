@@ -1,0 +1,58 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Brief Two-Stage Classifier" id="0">
+    <mxGraphModel dx="1660" dy="959" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="700" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="input" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=15;fontStyle=1;" value="SNLI Input&#xa;Premise + Hypothesis" vertex="1">
+          <mxGeometry height="70" width="280" x="240" y="55" as="geometry" />
+        </mxCell>
+        <mxCell id="encoder" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=15;fontStyle=1;" value="ELECTRA-small" vertex="1">
+          <mxGeometry height="60" width="280" x="240" y="165" as="geometry" />
+        </mxCell>
+        <mxCell id="stage1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=15;fontStyle=1;" value="Stage 1&#xa;Neutral vs. Not Neutral" vertex="1">
+          <mxGeometry height="75" width="280" x="240" y="265" as="geometry" />
+        </mxCell>
+        <mxCell id="neutral" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=15;fontStyle=1;" value="Neutral" vertex="1">
+          <mxGeometry height="70" width="140" x="170" y="415" as="geometry" />
+        </mxCell>
+        <mxCell id="stage2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=15;fontStyle=1;" value="Stage 2&#xa;Entailment vs. Contradiction" vertex="1">
+          <mxGeometry height="80" width="280" x="380" y="415" as="geometry" />
+        </mxCell>
+        <mxCell id="entailment" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=15;fontStyle=1;" value="Entailment" vertex="1">
+          <mxGeometry height="70" width="140" x="310" y="575" as="geometry" />
+        </mxCell>
+        <mxCell id="contradiction" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=15;fontStyle=1;" value="Contradiction" vertex="1">
+          <mxGeometry height="70" width="150" x="580" y="575" as="geometry" />
+        </mxCell>
+        <mxCell id="focus" parent="1" style="shape=note;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=13;" value="Focus Learning:&lt;br&gt;fine-tune on hard-to-learn examples" vertex="1">
+          <mxGeometry height="90" width="230" x="640" y="257.5" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="input" style="endArrow=block;html=1;strokeWidth=2;" target="encoder">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="encoder" style="endArrow=block;html=1;strokeWidth=2;" target="stage1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="stage1" style="endArrow=block;html=1;strokeWidth=2;fontSize=13;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="neutral" value="Neutral">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="stage1" style="endArrow=block;html=1;strokeWidth=2;fontSize=13;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="stage2" value="Not Neutral">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="stage2" style="endArrow=block;html=1;strokeWidth=2;fontSize=13;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="entailment" value="Entailment">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="stage2" style="endArrow=block;html=1;strokeWidth=2;fontSize=13;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="contradiction" value="Contradiction">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" edge="1" parent="1" source="focus" style="dashed=1;endArrow=open;html=1;strokeColor=#d79b00;" target="stage1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" edge="1" parent="1" source="focus" style="dashed=1;endArrow=open;html=1;strokeColor=#d79b00;" target="stage2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
