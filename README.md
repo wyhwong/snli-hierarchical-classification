@@ -21,11 +21,11 @@ Here we provide the figures illustrating the proposed method:
 
 ### Hierarchical classification structure
 
-![Hierarchical classification structure](./report/1_classification_structure.png)
+![Hierarchical classification structure](./assets/methodology/1_classification_structure.png)
 
 ### SNLI data map for focus learning
 
-![SNLI data map](./report/2_data_map_snli.png)
+![SNLI data map](./assets/methodology/2_data_map_snli.png)
 
 ## Repository Usage
 

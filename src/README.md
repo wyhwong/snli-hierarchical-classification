@@ -15,15 +15,38 @@ pip install -r requirements.txt
 
 ## Training
 
-TBC
+```bash
+uv run python scripts/train_models.py
+```
+
+This script trains 5 models in sequence under `model_registry/`:
+- `baseline_model` (3-way SNLI classifier)
+- `stage_one_model` (binary stage-1 classifier)
+- `stage_one_with_focus_learning_model` (stage-1 fine-tuned with focus learning)
+- `stage_two_model` (binary stage-2 classifier)
+- `stage_two_with_focus_learning_model` (stage-2 fine-tuned with focus learning)
+
+If `model_registry/snli_roberta_0_6_data_map_coordinates.jsonl` is missing,
+it is downloaded automatically before training.
 
 ## Evaluation
 
-TBC
+```bash
+uv run python scripts/evaluate_models.py
+```
 
-## Results
+This script evaluates:
+- `baseline_model`
+- a two-stage hierarchical model (`stage_one_model` + `stage_two_model`)
+- a two-stage hierarchical model with focus learning
+	(`stage_one_with_focus_learning_model` + `stage_two_with_focus_learning_model`)
 
-TBC
+By default, evaluation runs on:
+- `snli` (`validation` split)
+- `../data/snli_subset.json` (`train` split)
+- `../data/snli_contrast_subset.json` (`train` split)
+
+Outputs are written under `model_evaluation/`.
 
 ## Reproducibility
 

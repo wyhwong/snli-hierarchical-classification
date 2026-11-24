@@ -1,4 +1,3 @@
-import datasets
 import pandas as pd
 from transformers import (
     AutoModelForSequenceClassification,
@@ -8,6 +7,7 @@ from transformers import (
 )
 
 from .datamap import select_hard_to_learn_examples
+from .dataset import filter_out_invalid_labels, filter_out_neutral_labels, load_dataset
 from .relabel import relabel_for_stage_one_classification, relabel_for_stage_two_classification
 from .starter_code.helpers import (
     compute_accuracy,
@@ -17,27 +17,29 @@ from .starter_code.helpers import (
 
 def train_model(
     model_path: str,
+    data_map: pd.DataFrame,
     learning_rate: float,
     num_epochs: int,
     output_dir: str,
     dataset_id: str = "snli",
     is_focus_learning: bool = False,
+    is_stage_one_learning: bool = False,
     is_stage_two_learning: bool = False,
-    task_kwargs: dict = {"num_labels": 2},  # pylint: disable=dangerous-default-value
+    task_kwargs: dict = {"num_labels": 2},
     num_preprocessing_workers: int = 2,
 ):
 
-    dataset = datasets.load_dataset(dataset_id)
-    dataset = dataset.filter(lambda ex: ex["label"] != -1)
+    dataset = load_dataset(dataset_id)
+    dataset = filter_out_invalid_labels(dataset)
 
     if is_focus_learning:
-        dataset["train"] = select_hard_to_learn_examples(dataset["train"])
+        dataset["train"] = select_hard_to_learn_examples(dataset["train"], data_map)
 
     if is_stage_two_learning:
         # For stage 2, remove neutral examples
-        dataset = dataset.filter(lambda ex: ex["label"] != 1)
+        dataset = filter_out_neutral_labels(dataset)
         dataset = dataset.map(relabel_for_stage_two_classification)
-    else:
+    elif is_stage_one_learning:
         dataset = dataset.map(relabel_for_stage_one_classification)
 
     model = AutoModelForSequenceClassification.from_pretrained(model_path, **task_kwargs)
