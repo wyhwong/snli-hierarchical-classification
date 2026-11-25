@@ -23,7 +23,7 @@ Here we provide the figures illustrating the proposed method:
 
 ![Hierarchical classification structure](./assets/methodology/1_classification_structure.png)
 
-### SNLI data map for focus learning
+### SNLI data map for focus learning (Modified from [Swayamdipta et al., 2020](https://aclanthology.org/2020.emnlp-main.746/))
 
 ![SNLI data map](./assets/methodology/2_data_map_snli.png)
 
